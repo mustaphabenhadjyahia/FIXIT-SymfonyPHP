@@ -1,0 +1,51 @@
+{% extends '@Main/Default/index.html.twig' %}
+{% block content %}
+
+
+
+<link  href="{{ asset('css/Annonce.css') }}" rel="stylesheet"></link>
+
+
+
+
+
+
+{% for i in  m %}
+
+    <div class="blog-card">
+
+        <div class="meta">
+
+            <div>
+            <img src="{{ asset('img/') }}{{ i.image }} " style="width:400px;height: 200px" >
+            </div>
+        </div>
+        <div class="description">
+            <div style="display: inline-flex;width: 100%">
+                <h1>Annonce</h1>
+                <div style="margin-left: auto;margin-right: 0">
+
+
+
+                </div>
+            </div>
+            <h2>Objet: {{ i.objet }}</h2>
+            <p style="margin-bottom: 15px">Description: {{ i.description|raw }}</p>
+            <p style="margin-bottom: 15px">Lieu: {{ i.lieu }}</p>
+            <p style="margin-bottom: 15px">Domaine: {{ i.domaine.getNom() }}</p>
+
+            <div style="display: inline-flex;text-align:left;width: 100%;margin-bottom: 15px">
+                <div class="author">Auteur: <a href="#" style="margin-right: 10px">{{ i.idPrest.nom }}</a></div>|
+                <div class="date" style="margin-left: 10px;margin-right: 10px">Date: {{ i.datecreation|date("d/m/Y") }} </div>|
+                <div class="tags" style="margin-left: 10px">Prix (TND): {{ i.prix}}</div>
+
+            </div>
+                 </div>
+
+
+    </div>
+{% endfor %}
+
+        <div class="navigation text-center col-md-9">{{ knp_pagination_render(m) }}</div>
+
+{% endblock %}

@@ -1,0 +1,65 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+
+
+<link  href="{{ asset('css/signUp.css') }}" rel="stylesheet"></link>
+<div class="login-page">
+    <h2 style="text-align: center">Inscription Prestataire</h2>
+    <div class="form">
+        {% form_theme form 'foundation_5_layout.html.twig' %}
+
+        {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register1')}) }}
+
+        {{ form_label(form.username) }}
+        <div class="errr">
+            {{ form_errors(form.username) }}
+        </div>
+        {{ form_widget(form.username) }}
+
+        {{ form_label(form.email) }}
+        <div class="errr">
+            {{ form_errors(form.email) }}
+        </div>
+        {{ form_widget(form.email) }}
+
+        {{ form_label(form.plainPassword.first) }}
+        <div class="errr">
+            {{ form_errors(form.plainPassword.first) }}
+        </div>
+        {{ form_widget(form.plainPassword.first) }}
+
+        {{ form_label(form.plainPassword.second) }}
+        <div class="errr">
+            {{ form_errors(form.plainPassword.second) }}
+        </div>
+        {{ form_widget(form.plainPassword.second) }}
+
+        {{ form_label(form.nom) }}
+        {{ form_widget(form.nom) }}
+
+        {{ form_label(form.pays) }}
+        {{ form_widget(form.pays) }}
+
+        {{ form_label(form.ville) }}
+        {{ form_widget(form.ville) }}
+
+        {{ form_label(form.adresse) }}
+        {{ form_widget(form.adresse) }}
+
+        {{ form_label(form.tel,'Telephone') }}
+        {{ form_widget(form.tel) }}
+
+        {{ form_label(form.nbeffectif,'Nombre effectif') }}
+        {{ form_widget(form.nbeffectif) }}
+
+        {{ form_label(form.titre) }}
+        {{ form_widget(form.titre) }}
+
+
+        {{ form_row(form.sexe,{'attr':{'disabled':'disabled','style':'display:none'},'label':false}) }}
+
+        <button type="submit">S'inscrire</button>
+        <p class="message">Avez-vous un <a href="{{ path('fos_user_security_login') }}">compte déja?</a></p>
+        {{ form_end(form) }}
+    </div>
+</div>

@@ -1,0 +1,36 @@
+{% extends '@Main/Default/index.html.twig' %}
+
+{% block content %}
+    <link  href="{{ asset('css/signUp.css') }}" rel="stylesheet"></link>
+
+    <div class="login-page">
+        <h2 style="text-align: center">Modification Offre</h2>
+        <div class="form">
+
+
+            {{ form_start(form) }}
+
+            {{ form_label(form.objet) }}
+            <div class="errr">
+                {{ form_errors(form.objet) }}
+            </div>
+            {{ form_widget(form.objet) }}
+
+            {{ form_label(form.description) }}
+            <div class="errr">
+                {{ form_errors(form.description) }}
+            </div>
+            {{ form_widget(form.description) }}
+            {{ form_label(form.prix) }}
+
+            <div class="errr">
+                {{ form_errors(form.prix) }}
+            </div>
+            {{ form_widget(form.prix,{ 'attr': {'pattern': '[0-9]+(\.[0-9]{0,2})?%?'} }) }}
+
+            {{ form_end(form) }}
+
+
+        </div>
+    </div>
+{% endblock %}

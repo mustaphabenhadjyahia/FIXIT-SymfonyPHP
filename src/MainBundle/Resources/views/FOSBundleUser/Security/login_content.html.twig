@@ -1,0 +1,43 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+
+
+<script type="text/javascript">
+    function visible(id1,id2) {
+        var e1 = document.getElementById(id1);
+        var e2 = document.getElementById(id2);
+            e1.hidden = true;
+            e2.hidden = false;
+    }
+</script>
+<link  href="{{ asset('css/signUp.css') }}" rel="stylesheet"></link>
+<div class="login-page showClick" id="login">
+    <h2 style="text-align: center">Login</h2>
+    <div class="form">
+        <form action="{{ path("fos_user_security_check") }}" method="post" class="login-form">
+            {% if csrf_token %}
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+            {% endif %}
+            <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" autocomplete="username" placeholder="Nom d'utilisateur ou Mail"/>
+            <input type="password" id="password" name="_password" required="required" autocomplete="current-password" placeholder="Mot de passe" />
+            <div style="color: darkred;text-align: center;margin-bottom: 10px;">
+                {% if error %}
+                    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
+            </div>
+            <button type="submit">Login</button>
+            <p class="message">Pas encore inscrit sur FixIt? Créer <a href="#" onclick="visible('login','choix')"> votre compte</a></p>
+
+        </form>
+    </div>
+</div>
+<div id="choix" hidden="true">
+    <div style="text-align: center;margin-top: 8%;margin-bottom: 8%;">
+        <a href="{{ path('fos_user_registration_register') }}" style="" class="test">
+            <img src="{{ asset('img/membreNoir.png') }}" alt="" style="margin-right: 40px;width: 20%;">
+        </a>
+        <a href="{{ path('fos_user_registration_register1') }}" style="" class="test">
+            <img src="{{ asset('img/prestataireNoir.png') }}" alt="" style="margin-left: 40px;width: 20%;">
+        </a>
+    </div>
+</div>

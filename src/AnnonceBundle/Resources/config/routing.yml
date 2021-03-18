@@ -1,0 +1,18 @@
+annonce_homepage:
+    path:     /
+    defaults: { _controller: AnnonceBundle:Default:index }
+annonceaff:
+    path:     /annonceaff
+    defaults: { _controller: AnnonceBundle:Annonce:afficherAnnonce }
+annonceadd:
+    path:     /annonceadd
+    defaults: { _controller: AnnonceBundle:Annonce:ajouterAnnonce }
+annoncemodif:
+    path:     /annoncemodif/{id}
+    defaults: { _controller: AnnonceBundle:Annonce:modifierAnnonce }
+annoncesupp:
+    path:     /annoncesupp/{id}
+    defaults: { _controller: AnnonceBundle:Annonce:supprimerAnnonce }
+toutesannoncesaff:
+    path:     /ttsannoncesaff
+    defaults: { _controller: AnnonceBundle:Annonce:affichertoutesannonces }

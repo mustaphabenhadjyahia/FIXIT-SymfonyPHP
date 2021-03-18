@@ -1,0 +1,655 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="testpi">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="testpi">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="ihm"/>
+    <schema id="4" parent="1" name="information_schema"/>
+    <schema id="5" parent="1" name="medina"/>
+    <schema id="6" parent="1" name="mysql"/>
+    <schema id="7" parent="1" name="parc"/>
+    <schema id="8" parent="1" name="performance_schema"/>
+    <schema id="9" parent="1" name="sys"/>
+    <schema id="10" parent="1" name="testweb"/>
+    <table id="11" parent="2" name="categorie"/>
+    <table id="12" parent="2" name="demandeachat"/>
+    <table id="13" parent="2" name="demandeservice"/>
+    <table id="14" parent="2" name="domaine"/>
+    <table id="15" parent="2" name="fos_user"/>
+    <table id="16" parent="2" name="membre"/>
+    <table id="17" parent="2" name="offre"/>
+    <table id="18" parent="2" name="prestataire"/>
+    <table id="19" parent="2" name="reclamation"/>
+    <table id="20" parent="2" name="souscategorie"/>
+    <table id="21" parent="2" name="sousdomaine"/>
+    <column id="22" parent="11" name="Id">
+      <Position>1</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="23" parent="11" name="Nom">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="24" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="25" parent="12" name="Id">
+      <Position>1</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="26" parent="12" name="Objet">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="27" parent="12" name="Description">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="28" parent="12" name="Prix">
+      <Position>4</Position>
+      <DataType>double|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="29" parent="12" name="TypeDemande">
+      <Position>5</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="30" parent="12" name="demandeur">
+      <Position>6</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="31" parent="12" name="cible">
+      <Position>7</Position>
+      <DataType>int(10)|0</DataType>
+    </column>
+    <column id="32" parent="12" name="TypeDemandeur">
+      <Position>8</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="33" parent="12" name="Quantite">
+      <Position>9</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="34" parent="12" name="Occasion">
+      <Position>10</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="35" parent="12" name="categorie">
+      <Position>11</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="36" parent="12" name="souscategorie">
+      <Position>12</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="37" parent="12" name="etat">
+      <Position>13</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="38" parent="12" name="categorie">
+      <ColNames>categorie</ColNames>
+    </index>
+    <index id="39" parent="12" name="cible">
+      <ColNames>cible</ColNames>
+    </index>
+    <index id="40" parent="12" name="demandeur">
+      <ColNames>demandeur</ColNames>
+    </index>
+    <index id="41" parent="12" name="souscategorie">
+      <ColNames>souscategorie</ColNames>
+    </index>
+    <key id="42" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="43" parent="12" name="demandeachat_ibfk_2">
+      <ColNames>cible</ColNames>
+      <RefSchemaName>testpi</RefSchemaName>
+      <RefTableName>prestataire</RefTableName>
+      <RefColNames>Id</RefColNames>
+    </foreign-key>
+    <foreign-key id="44" parent="12" name="demandeachat_ibfk_1">
+      <ColNames>categorie</ColNames>
+      <RefSchemaName>testpi</RefSchemaName>
+      <RefTableName>categorie</RefTableName>
+      <RefColNames>Id</RefColNames>
+    </foreign-key>
+    <foreign-key id="45" parent="12" name="demandeachat_ibfk_5">
+      <ColNames>souscategorie</ColNames>
+      <RefSchemaName>testpi</RefSchemaName>
+      <RefTableName>souscategorie</RefTableName>
+      <RefColNames>Id</RefColNames>
+    </foreign-key>
+    <column id="46" parent="13" name="Id">
+      <Position>1</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="47" parent="13" name="Objet">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="48" parent="13" name="Description">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="49" parent="13" name="Prix">
+      <Position>4</Position>
+      <DataType>double|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="50" parent="13" name="TypeDemande">
+      <Position>5</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="51" parent="13" name="demandeur">
+      <Position>6</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="52" parent="13" name="cible">
+      <Position>7</Position>
+      <DataType>int(10)|0</DataType>
+    </column>
+    <column id="53" parent="13" name="TypeDemandeur">
+      <Position>8</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="54" parent="13" name="DeadLine">
+      <Position>9</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="55" parent="13" name="domaine">
+      <Position>10</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="56" parent="13" name="sousdomaine">
+      <Position>11</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="57" parent="13" name="etat">
+      <Position>12</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="58" parent="13" name="cible">
+      <ColNames>cible</ColNames>
+    </index>
+    <index id="59" parent="13" name="demandeur">
+      <ColNames>demandeur</ColNames>
+    </index>
+    <index id="60" parent="13" name="domaine">
+      <ColNames>domaine</ColNames>
+    </index>
+    <index id="61" parent="13" name="sousdomaine">
+      <ColNames>sousdomaine</ColNames>
+    </index>
+    <key id="62" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="63" parent="13" name="demandeservice_ibfk_2">
+      <ColNames>cible</ColNames>
+      <RefSchemaName>testpi</RefSchemaName>
+      <RefTableName>prestataire</RefTableName>
+      <RefColNames>Id</RefColNames>
+    </foreign-key>
+    <foreign-key id="64" parent="13" name="demandeservice_ibfk_1">
+      <ColNames>domaine</ColNames>
+      <RefSchemaName>testpi</RefSchemaName>
+      <RefTableName>domaine</RefTableName>
+      <RefColNames>Id</RefColNames>
+    </foreign-key>
+    <foreign-key id="65" parent="13" name="demandeservice_ibfk_5">
+      <ColNames>sousdomaine</ColNames>
+      <RefSchemaName>testpi</RefSchemaName>
+      <RefTableName>sousdomaine</RefTableName>
+      <RefColNames>Id</RefColNames>
+    </foreign-key>
+    <column id="66" parent="14" name="Id">
+      <Position>1</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="67" parent="14" name="Nom">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="68" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="69" parent="15" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="70" parent="15" name="username">
+      <Position>2</Position>
+      <DataType>varchar(180)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="71" parent="15" name="username_canonical">
+      <Position>3</Position>
+      <DataType>varchar(180)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="72" parent="15" name="email">
+      <Position>4</Position>
+      <DataType>varchar(180)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="73" parent="15" name="email_canonical">
+      <Position>5</Position>
+      <DataType>varchar(180)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="74" parent="15" name="enabled">
+      <Position>6</Position>
+      <DataType>tinyint(1)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="75" parent="15" name="salt">
+      <Position>7</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="76" parent="15" name="password">
+      <Position>8</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="77" parent="15" name="last_login">
+      <Position>9</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="78" parent="15" name="confirmation_token">
+      <Position>10</Position>
+      <DataType>varchar(180)|0</DataType>
+    </column>
+    <column id="79" parent="15" name="password_requested_at">
+      <Position>11</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="80" parent="15" name="roles">
+      <Position>12</Position>
+      <Comment>(DC2Type:array)</Comment>
+      <DataType>longtext|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="81" parent="15" name="score">
+      <Position>13</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="82" parent="15" name="pays">
+      <Position>14</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="83" parent="15" name="ville">
+      <Position>15</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="84" parent="15" name="adresse">
+      <Position>16</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="85" parent="15" name="tel">
+      <Position>17</Position>
+      <DataType>varchar(8)|0</DataType>
+    </column>
+    <column id="86" parent="15" name="nbeffectif">
+      <Position>18</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="87" parent="15" name="sexe">
+      <Position>19</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="88" parent="15" name="titre">
+      <Position>20</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <index id="89" parent="15" name="UNIQ_957A647992FC23A8">
+      <ColNames>username_canonical</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="90" parent="15" name="UNIQ_957A6479A0D96FBF">
+      <ColNames>email_canonical</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="91" parent="15" name="UNIQ_957A6479C05FB297">
+      <ColNames>confirmation_token</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="92" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="93" parent="15" name="UNIQ_957A647992FC23A8">
+      <ColNames>username_canonical</ColNames>
+      <UnderlyingIndexName>UNIQ_957A647992FC23A8</UnderlyingIndexName>
+    </key>
+    <key id="94" parent="15" name="UNIQ_957A6479A0D96FBF">
+      <ColNames>email_canonical</ColNames>
+      <UnderlyingIndexName>UNIQ_957A6479A0D96FBF</UnderlyingIndexName>
+    </key>
+    <key id="95" parent="15" name="UNIQ_957A6479C05FB297">
+      <ColNames>confirmation_token</ColNames>
+      <UnderlyingIndexName>UNIQ_957A6479C05FB297</UnderlyingIndexName>
+    </key>
+    <column id="96" parent="16" name="Id">
+      <Position>1</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="97" parent="16" name="Nom">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="98" parent="16" name="Login">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="99" parent="16" name="Password">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="100" parent="16" name="Photo">
+      <Position>5</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="101" parent="16" name="Pays">
+      <Position>6</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="102" parent="16" name="Ville">
+      <Position>7</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="103" parent="16" name="Adresse">
+      <Position>8</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="104" parent="16" name="Tel">
+      <Position>9</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="105" parent="16" name="Mail">
+      <Position>10</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="106" parent="16" name="Sexe">
+      <Position>11</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="107" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="108" parent="17" name="id_offre">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="109" parent="17" name="objet">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="110" parent="17" name="description">
+      <Position>3</Position>
+      <DataType>varchar(150)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="111" parent="17" name="id_prest">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="112" parent="17" name="id_dem">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="113" parent="17" name="prix">
+      <Position>6</Position>
+      <DataType>float|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="114" parent="17" name="état">
+      <Position>7</Position>
+      <DataType>int(1)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="115" parent="17" name="datecreation">
+      <Position>8</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="116" parent="17" name="typeOffre">
+      <Position>9</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="117" parent="17" name="id_dem">
+      <ColNames>id_dem</ColNames>
+    </index>
+    <index id="118" parent="17" name="id_prest">
+      <ColNames>id_prest</ColNames>
+    </index>
+    <key id="119" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id_offre</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="120" parent="17" name="offre_ibfk_3">
+      <ColNames>id_prest</ColNames>
+      <RefSchemaName>testpi</RefSchemaName>
+      <RefTableName>prestataire</RefTableName>
+      <RefColNames>Id</RefColNames>
+    </foreign-key>
+    <column id="121" parent="18" name="Id">
+      <Position>1</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="122" parent="18" name="Nom">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="123" parent="18" name="Login">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="124" parent="18" name="Password">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="125" parent="18" name="Photo">
+      <Position>5</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="126" parent="18" name="Pays">
+      <Position>6</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="127" parent="18" name="Ville">
+      <Position>7</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="128" parent="18" name="Adresse">
+      <Position>8</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="129" parent="18" name="Tel">
+      <Position>9</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="130" parent="18" name="Mail">
+      <Position>10</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="131" parent="18" name="NbEffectif">
+      <Position>11</Position>
+      <DataType>int(10)|0</DataType>
+    </column>
+    <column id="132" parent="18" name="Bloque">
+      <Position>12</Position>
+      <DataType>int(10)|0</DataType>
+    </column>
+    <column id="133" parent="18" name="Titre">
+      <Position>13</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="134" parent="18" name="Score">
+      <Position>14</Position>
+      <DataType>int(10)|0</DataType>
+    </column>
+    <key id="135" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="136" parent="19" name="id_reclam">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="137" parent="19" name="objet">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="138" parent="19" name="description">
+      <Position>3</Position>
+      <DataType>varchar(150)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="139" parent="19" name="id_prestt">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="140" parent="19" name="id_user">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="141" parent="19" name="date_reclam">
+      <Position>6</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="142" parent="19" name="etat_reclam">
+      <Position>7</Position>
+      <DataType>int(15)|0</DataType>
+    </column>
+    <column id="143" parent="19" name="piece">
+      <Position>8</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="144" parent="19" name="type_reclameur">
+      <Position>9</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="145" parent="19" name="id_memb">
+      <ColNames>id_user</ColNames>
+    </index>
+    <index id="146" parent="19" name="id_prestt">
+      <ColNames>id_prestt</ColNames>
+    </index>
+    <key id="147" parent="19" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id_reclam</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="148" parent="20" name="Id">
+      <Position>1</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="149" parent="20" name="Nom">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="150" parent="20" name="id_categ">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="151" parent="20" name="id_categ">
+      <ColNames>id_categ</ColNames>
+    </index>
+    <key id="152" parent="20" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="153" parent="20" name="souscategorie_ibfk_1">
+      <ColNames>id_categ</ColNames>
+      <RefSchemaName>testpi</RefSchemaName>
+      <RefTableName>categorie</RefTableName>
+      <RefColNames>Id</RefColNames>
+    </foreign-key>
+    <column id="154" parent="21" name="Id">
+      <Position>1</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="155" parent="21" name="Nom">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="156" parent="21" name="id_domaine">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="157" parent="21" name="id_domaine">
+      <ColNames>id_domaine</ColNames>
+    </index>
+    <key id="158" parent="21" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="159" parent="21" name="sousdomaine_ibfk_1">
+      <ColNames>id_domaine</ColNames>
+      <RefSchemaName>testpi</RefSchemaName>
+      <RefTableName>domaine</RefTableName>
+      <RefColNames>Id</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>

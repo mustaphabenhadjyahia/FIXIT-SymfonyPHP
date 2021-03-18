@@ -1,0 +1,66 @@
+{% extends "@Main/Default/index.html.twig" %}
+{% block content %}
+{% trans_default_domain 'FOSUserBundle' %}
+    <link  href="{{ asset('css/signUp.css') }}" rel="stylesheet"></link>
+    <div class="login-page">
+        <h2 style="text-align: center">Editer Profil</h2>
+    <div class="form">
+
+        {{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
+            {{ form_label(form.username) }}
+            <div class="errr">
+                {{ form_errors(form.username) }}
+            </div>
+            {{ form_widget(form.username) }}
+
+            {{ form_label(form.email) }}
+            <div class="errr">
+                {{ form_errors(form.email) }}
+            </div>
+            {{ form_widget(form.email) }}
+
+            {{ form_label(form.current_password) }}
+            <div class="errr">
+                {{ form_errors(form.current_password) }}
+            </div>
+            {{ form_widget(form.current_password) }}
+
+            {{ form_label(form.nom) }}
+            {{ form_widget(form.nom) }}
+
+            {{ form_label(form.pays) }}
+            {{ form_widget(form.pays) }}
+
+            {{ form_label(form.ville) }}
+            {{ form_widget(form.ville) }}
+
+            {{ form_label(form.adresse) }}
+            {{ form_widget(form.adresse) }}
+
+            {{ form_label(form.tel,'Telephone') }}
+            {{ form_widget(form.tel) }}
+
+            {% if is_granted('ROLE_MEMBER') %}
+                {{ form_label(form.sexe) }}
+                {{ form_widget(form.sexe) }}
+
+                {{ form_row(form.nbeffectif,{'attr':{'disabled':'disabled','style':'display:none'},'label':false}) }}
+                {{ form_row(form.titre,{'attr':{'disabled':'disabled','style':'display:none'},'label':false}) }}
+            {% endif %}
+
+        {% if is_granted('ROLE_PREST') %}
+            {{ form_label(form.nbeffectif,'Nombre effectif') }}
+            {{ form_widget(form.nbeffectif) }}
+
+            {{ form_label(form.titre) }}
+            {{ form_widget(form.titre) }}
+
+            {{ form_row(form.sexe,{'attr':{'disabled':'disabled','style':'display:none'},'label':false}) }}
+        {% endif %}
+        <div>
+            <button type="submit">{{ 'profile.edit.submit'|trans }}</button>
+        </div>
+        {{ form_end(form) }}
+    </div>
+    </div>
+{% endblock %}

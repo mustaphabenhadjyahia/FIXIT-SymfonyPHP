@@ -1,0 +1,78 @@
+{% extends '@Main/Default/index.html.twig' %}
+{% block content %}
+
+
+
+<link  href="{{ asset('css/Annonce.css') }}" rel="stylesheet"></link>
+
+    <script language="javascript" type="text/javascript" src="{{ asset('https://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js') }}"></script>
+
+    <script>
+        $(function() {
+            $('a[data-confirm]').click(function(ev) {
+                var href = $(this).attr('href');
+
+                if (!$('#dataConfirmModal').length) {
+                    $('body').append('<div id="dataConfirmModal" class="modal" style="margin-left: 0;background-color: transparent;text-align: center" etrole="dialog" aria-labelledby="dataConfirmLabel" aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h3 id="dataConfirmLabel">Merci de confirmer</h3></div><div class="modal-body"></div><div class="modal-footer"><button class="btn" data-dismiss="modal" aria-hidden="true">Non</button><a class="btn btn-danger" id="dataConfirmOK">Oui</a></div></div></div></div>');
+                }
+                $('#dataConfirmModal').find('.modal-body').text($(this).attr('data-confirm'));
+                $('#dataConfirmOK').attr('href', href);
+                $('#dataConfirmModal').modal({show:true});
+
+                return false;
+            });
+        });
+
+    </script>
+
+
+
+
+    {% set flashbag_notices = app.session.flashbag.get('notice') %}
+    {% if flashbag_notices is not empty %}
+        {% for notice in flashbag_notices %}
+            <div class="alert alert-success">{{ notice }}</div>
+        {% endfor %}
+    {% endif  %}
+
+
+
+{% for i in  m %}
+
+    <div class="blog-card">
+
+        <div class="meta">
+
+            <div>
+            <img src="{{ asset('img/') }}{{ i.image }} " style="width:400px;height: 200px" >
+            </div>
+        </div>
+        <div class="description">
+            <div style="display: inline-flex;width: 100%">
+                <h1>Annonce</h1>
+                <div style="margin-left: auto;margin-right: 0">
+
+                    <button type="button" class="btn btn-primary btn-xs dt-edit" style="margin-right:10px;"><a style="color: white" href={{ path("annoncemodif",{'id':i.idAnnonce,'type':1}) }}>Modifier</a></button>
+                    <button type="button" class="btn btn-danger btn-xs dt-delete"><a style="color: white" href="{{ path('annoncesupp',{'id' : i.idAnnonce }) }}" data-confirm="Etes-vous certain de vouloir supprimer?"    >Supprimer</a></button>
+                </div>
+            </div>
+            <h2>Objet: {{ i.objet }}</h2>
+            <p style="margin-bottom: 15px">Description: {{ i.description|raw }}</p>
+            <p style="margin-bottom: 15px">Lieu: {{ i.lieu }}</p>
+            <p style="margin-bottom: 15px">Domaine: {{ i.domaine.getNom() }}</p>
+
+            <div style="display: inline-flex;text-align:left;width: 100%;margin-bottom: 15px">
+                <div class="author">Auteur: <a href="#" style="margin-right: 10px">{{ i.idPrest.nom }}</a></div>|
+                <div class="date" style="margin-left: 10px;margin-right: 10px">Date: {{ i.datecreation|date("d/m/Y") }} </div>|
+                <div class="tags" style="margin-left: 10px">Prix (TND): {{ i.prix}}</div>
+
+            </div>
+                 </div>
+
+
+    </div>
+{% endfor %}
+
+        <div class="navigation text-center col-md-9">{{ knp_pagination_render(m) }}</div>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+
+
+.cent{
+    text-align: center;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.imgPrest{
+    margin-left: 10px;
+    width: 30%;
+    background-image: url("../img/prestataireNoir.png");
+}
+
+.imgPrest:hover{
+    width: 30%;
+    background: url("../img/prestataireVert.png");
+}
+
+.imgMembre{
+    margin-right: 10px;
+    width: 30%;
+    background: url("../img/membreNoir.png");
+}
+
+.imgMembre:hover{
+    width: 30%;
+    background: url("../img/membreVert.png");
+}

@@ -1,0 +1,56 @@
+web_service_homepage:
+    path:     /
+    defaults: { _controller: WebServiceBundle:Default:index }
+affichage:
+    path:     /mobile/affichage/{id}
+    defaults: { _controller: WebServiceBundle:Offre:afficheroffres }
+ajout:
+    path:     /mobile/ajout
+    defaults: { _controller: WebServiceBundle:Offre:ajouterOffre }
+affichage2:
+    path:     /mobile/affichage2/{id}
+    defaults: { _controller: WebServiceBundle:Offre:affichertravaux }
+affichage3:
+    path:     /mobile/affichage3/{id}
+    defaults: { _controller: WebServiceBundle:Offre:affichertravauxtermines }
+terminer:
+    path:     /mobile/terminer/{id}
+    defaults: { _controller: WebServiceBundle:Offre:terminerOffre }
+addUser:
+    path: /userAdd/add
+    defaults: { _controller: WebServiceBundle:User:add}
+authentification:
+    path: /authentification/{login}/{password}
+    defaults: { _controller: WebServiceBundle:User:authentification}
+updateUser:
+    path: /modifProfileClient/{id}
+    defaults: {_controller: WebServiceBundle:User:updateProfile}
+
+
+allUsers:
+    path: /users/all
+    defaults: {_controller: WebServiceBundle:User:all}
+
+allUsers2:
+    path: /users/all2/{id}
+    defaults: {_controller: WebServiceBundle:User:all2}
+
+Products:
+    path: /Products/{id}
+    defaults: {_controller: WebServiceBundle:WebService:Products}
+
+add:
+    path:     /add/{short_descr}/{phone}/{nom_prest}/{description}/{ref_img}/{user_id}
+    defaults: { _controller: WebServiceBundle:WebService:add }
+
+addnada:
+    path:     /addnada
+    defaults: { _controller: WebServiceBundle:WebService:addnada }
+
+
+recherche:
+    path:     /recherche/{tag}
+    defaults: { _controller: WebServiceBundle:WebService:ReclamsRecherches}
+
+
+

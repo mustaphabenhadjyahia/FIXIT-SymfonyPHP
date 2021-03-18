@@ -1,0 +1,31 @@
+web_service:
+    resource: "@WebServiceBundle/Resources/config/routing.yml"
+    prefix:   /fixit
+
+annonce:
+    resource: "@AnnonceBundle/Resources/config/routing.yml"
+    prefix:   /annonce
+
+mail:
+    resource: "@MailBundle/Resources/config/routing.yml"
+    prefix:   /mail
+
+offre:
+    resource: "@OffreBundle/Resources/config/routing.yml"
+    prefix:   /offre
+
+
+main:
+    resource: "@MainBundle/Resources/config/routing.yml"
+    prefix:   /home
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+acceuil:
+    path:   /
+    defaults:  { _controller: AppBundle:Default:index }
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation

@@ -1,0 +1,21 @@
+offre_homepage:
+    path:     /
+    defaults: { _controller: OffreBundle:Default:index }
+offre:
+    path:     /offre
+    defaults: { _controller: OffreBundle:Offre:offre }
+offreadd:
+    path:     /offreadd
+    defaults: { _controller: OffreBundle:Offre:ajouterOffre }
+offreaff:
+    path:     /offreaff
+    defaults: { _controller: OffreBundle:Offre:afficherOffre }
+offremodif:
+    path:     /offremodif/{id}
+    defaults: { _controller: OffreBundle:Offre:modifierOffre }
+offresupp:
+    path:     /offresupp/{id}
+    defaults: { _controller: OffreBundle:Offre:supprimerOffre }
+offrerech:
+    path:     /offrerech
+    defaults: { _controller: OffreBundle:Offre:rechercherOffre }
